@@ -1,13 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './BookListItem.css';
 
-export const BookListItem = ({ book }) => {
-  const { title, author } = book;
+export const BookListItem = ({ book, onAddedToCart }) => {
+  const { title, author, price, coverImage } = book;
   return (
-    <Fragment>
-      <span>{title}</span>
-      <span>{author}</span>
-    </Fragment>
+    <div className='book-list-item'>
+      <div className='book-cover'>
+        <img src={coverImage} alt='обложка книги' />
+      </div>
+      <div className='book-details'>
+        <span className='book-title'>{title}</span>
+        <div className='book-author'>{author}</div>
+        <div className='book-price'>$ {price}</div>
+        <button onClick={onAddedToCart} className='btn btn-info add-to-cart'>
+          Add to cart
+        </button>
+      </div>
+    </div>
   );
 };
 

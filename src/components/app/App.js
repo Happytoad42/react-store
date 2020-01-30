@@ -1,22 +1,14 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Cartpage, Homepage } from '../pages';
 
 import './App.css';
+import ShopHeader from '../shop-header';
 
 const App = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Homepage</Link>
-          </li>
-          <li>
-            <Link to='/cart'>Cart Page</Link>
-          </li>
-        </ul>
-      </nav>
+    <main role='main' className='container'>
+      <ShopHeader numItems={3} total={90} />
       <Switch>
         <Route path='/cart'>
           <Cartpage />
@@ -25,7 +17,7 @@ const App = () => {
           <Homepage />
         </Route>
       </Switch>
-    </div>
+    </main>
   );
 };
 
